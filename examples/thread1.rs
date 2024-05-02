@@ -50,6 +50,7 @@ fn producer(idx: usize, tx: mpsc::Sender<Msg>) -> Result<()> {
             break;
         }
     }
+
     Ok(())
 }
 
