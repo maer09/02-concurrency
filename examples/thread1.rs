@@ -1,4 +1,4 @@
-use anyhow::{Result, anyhow};
+use anyhow::{anyhow, Result};
 use std::{sync::mpsc, thread, time::Duration};
 
 const NUM_PRODUCERS: usize = 4;
@@ -30,9 +30,9 @@ fn main() -> Result<()> {
         42
     });
 
-    let secret = consumer.join().map_err(|e| {
-        anyhow!("Thread join error: {:?}", e)
-    })?;
+    let secret = consumer
+        .join()
+        .map_err(|e| anyhow!("Thread join error: {:?}", e))?;
 
     println!("secret: {}", secret);
 
@@ -55,6 +55,6 @@ fn producer(idx: usize, tx: mpsc::Sender<Msg>) -> Result<()> {
 
 impl Msg {
     fn new(idx: usize, value: usize) -> Self {
-        Self {idx, value}
+        Self { idx, value }
     }
 }
