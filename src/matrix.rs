@@ -54,7 +54,6 @@ where
     }
 }
 
-#[allow(dead_code)]
 // 因为需要用到+=，所以需要数据类型满足AddAssign；因为需要取出数据使用，所以需要数据满足Copy；
 pub fn multiply<T>(a: &Matrix<T>, b: &Matrix<T>) -> Result<Matrix<T>>
 where
