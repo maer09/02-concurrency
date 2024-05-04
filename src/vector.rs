@@ -20,7 +20,7 @@ impl<T> Deref for Vector<T> {
 }
 
 #[allow(dead_code)]
-pub fn dot_product<T>(a: Vector<T>, b: Vec<T>) -> Result<T>
+pub fn dot_product<T>(a: Vector<T>, b: Vector<T>) -> Result<T>
 where
     T: Copy + Default + Add<Output = T> + AddAssign + Mul<Output = T>,
 {
